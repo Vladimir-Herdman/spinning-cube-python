@@ -25,21 +25,66 @@ idx = 0
 
 
 def calculateX(i: int, j: int, k: int) -> float:
+    """
+    Calculate the X coordinate in 3D space based on input parameters.
+
+    Args:
+        i (int): X coordinate in 3D space.
+        j (int): Y coordinate in 3D space.
+        k (int): Z coordinate in 3D space.
+
+    Returns:
+        float: Calculated X coordinate.
+    """
     return (j * sin(A) * sin(B) * cos(C) - k * cos(A) * sin(B) * cos(C) +
             j * cos(A) * sin(C) + k * sin(A) * sin(C) + i * cos(B) * cos(C))
 
 
 def calculateY(i: int, j: int, k: int) -> float:
+    """
+    Calculate the Y coordinate in 3D space based on input parameters.
+
+    Args:
+        i (int): X coordinate in 3D space.
+        j (int): Y coordinate in 3D space.
+        k (int): Z coordinate in 3D space.
+
+    Returns:
+        float: Calculated Y coordinate.
+    """
     return (j * cos(A) * cos(C) + k * sin(A) * cos(C) -
             j * sin(A) * sin(B) * sin(C) + k * cos(A) * sin(B) * sin(C) -
             i * cos(B) * sin(C))
 
 
 def calculateZ(i: int, j: int, k: int) -> float:
+    """
+    Calculate the Z coordinate in 3D space based on input parameters.
+
+    Args:
+        i (int): X coordinate in 3D space.
+        j (int): Y coordinate in 3D space.
+        k (int): Z coordinate in 3D space.
+
+    Returns:
+        float: Calculated Z coordinate.
+    """
     return k * cos(A) * cos(B) - j * sin(A) * cos(B) + i * sin(B)
 
 
 def calculateForSurface(cubeX: float, cubeY: float, cubeZ: float, ch: int) -> None:
+    """
+    Calculate the 2D screen coordinates for a given 3D point on the cube surface.
+
+    Args:
+        cubeX (float): X coordinate of the cube point.
+        cubeY (float): Y coordinate of the cube point.
+        cubeZ (float): Z coordinate of the cube point.
+        ch (int): ASCII code for the character representing the surface point.
+
+    Returns:
+        None
+    """
     global x, y, z
     global ooz
     global xp, yp
@@ -60,6 +105,12 @@ def calculateForSurface(cubeX: float, cubeY: float, cubeZ: float, ch: int) -> No
 
 
 def main():
+    """
+    Main function to generate and display the 3D ASCII art by continuously rotating the cube.
+
+    Returns:
+        int: Exit code (never actually returns as it runs in an infinite loop).
+    """
     global buffer, zBuffer
     global A, B
 
